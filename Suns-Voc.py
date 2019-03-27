@@ -28,18 +28,26 @@ if hasattr(QtCore.Qt, 'AA_UseHighDpiPixmaps'):
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+
+        # Main window parameters
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(730, 320)
         MainWindow.setMinimumSize(QtCore.QSize(1200, 600))
         MainWindow.setMaximumSize(QtCore.QSize(1400, 600))
         font = QtGui.QFont()
         font.setFamily("Verdana")
-
-        # Main window parameters
         MainWindow.setFont(font)
         MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 730, 17))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
 
         # Push buttons
         self.addBtn = QtWidgets.QPushButton(self.centralwidget)
@@ -97,14 +105,7 @@ class Ui_MainWindow(object):
         self.label_4.setGeometry(QtCore.QRect(220, 60, 51, 16))
         self.label_4.setObjectName("label_4")
 
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 730, 17))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+
 
         m = PlotCanvas(MainWindow, width=5, height=4)
         m.move(390,60)
@@ -114,7 +115,6 @@ class Ui_MainWindow(object):
 
         self.addBtn.clicked.connect(self.addTemperature)
         self.quitBtn.clicked.connect(self.quitProgram)
-
 
 
 
