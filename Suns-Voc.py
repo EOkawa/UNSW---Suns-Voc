@@ -34,19 +34,20 @@ class Ui_MainWindow(object):
         MainWindow.setMaximumSize(QtCore.QSize(1400, 600))
         font = QtGui.QFont()
         font.setFamily("Verdana")
+
+        # Main window parameters
         MainWindow.setFont(font)
         MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
+        # Push buttons
         self.addBtn = QtWidgets.QPushButton(self.centralwidget)
         self.addBtn.setGeometry(QtCore.QRect(20, 110, 71, 21))
         self.addBtn.setObjectName("addBtn")
         self.quitBtn = QtWidgets.QPushButton(self.centralwidget)
         self.quitBtn.setGeometry(QtCore.QRect(640, 250, 71, 21))
         self.quitBtn.setObjectName("quitBtn")
-        self.temperatureList = QtWidgets.QListWidget(self.centralwidget)
-        self.temperatureList.setGeometry(QtCore.QRect(100, 80, 111, 161))
-        self.temperatureList.setObjectName("temperatureList")
         self.removeBtn = QtWidgets.QPushButton(self.centralwidget)
         self.removeBtn.setGeometry(QtCore.QRect(20, 130, 71, 21))
         self.removeBtn.setObjectName("removeBtn")
@@ -56,16 +57,16 @@ class Ui_MainWindow(object):
         self.loadBtn = QtWidgets.QPushButton(self.centralwidget)
         self.loadBtn.setGeometry(QtCore.QRect(20, 220, 71, 21))
         self.loadBtn.setObjectName("loadBtn")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(100, 240, 191, 31))
-        self.label.setWordWrap(True)
-        self.label.setObjectName("label")
+        self.saveBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.saveBtn.setGeometry(QtCore.QRect(640, 30, 71, 21))
+        self.saveBtn.setObjectName("saveBtn")
+
+        self.temperatureList = QtWidgets.QListWidget(self.centralwidget)
+        self.temperatureList.setGeometry(QtCore.QRect(100, 80, 111, 161))
+        self.temperatureList.setObjectName("temperatureList")
         self.AverageNum = QtWidgets.QSpinBox(self.centralwidget)
         self.AverageNum.setGeometry(QtCore.QRect(510, 250, 42, 22))
         self.AverageNum.setObjectName("AverageNum")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(510, 230, 41, 16))
-        self.label_2.setObjectName("label_2")
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setGeometry(QtCore.QRect(350, 20, 20, 241))
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
@@ -75,18 +76,27 @@ class Ui_MainWindow(object):
         self.doubleSpinBox.setGeometry(QtCore.QRect(20, 80, 71, 22))
         self.doubleSpinBox.setDecimals(1)
         self.doubleSpinBox.setObjectName("doubleSpinBox")
-        self.saveBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.saveBtn.setGeometry(QtCore.QRect(640, 30, 71, 21))
-        self.saveBtn.setObjectName("saveBtn")
+
+        # Lists
         self.vocList = QtWidgets.QListWidget(self.centralwidget)
         self.vocList.setGeometry(QtCore.QRect(220, 80, 111, 161))
         self.vocList.setObjectName("vocList")
+
+        # Labels
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(100, 240, 191, 31))
+        self.label.setWordWrap(True)
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(510, 230, 41, 16))
+        self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(100, 60, 61, 16))
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
         self.label_4.setGeometry(QtCore.QRect(220, 60, 51, 16))
         self.label_4.setObjectName("label_4")
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 730, 17))
@@ -104,6 +114,8 @@ class Ui_MainWindow(object):
 
         self.addBtn.clicked.connect(self.addTemperature)
         self.quitBtn.clicked.connect(self.quitProgram)
+
+
 
 
     def retranslateUi(self, MainWindow):
