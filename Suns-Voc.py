@@ -69,12 +69,17 @@ class Ui_MainWindow(object):
         self.saveBtn.setGeometry(QtCore.QRect(640, 30, 71, 21))
         self.saveBtn.setObjectName("saveBtn")
 
+        # Lists
         self.temperatureList = QtWidgets.QListWidget(self.centralwidget)
         self.temperatureList.setGeometry(QtCore.QRect(100, 80, 111, 161))
         self.temperatureList.setObjectName("temperatureList")
+
+        # Numeric controls
         self.AverageNum = QtWidgets.QSpinBox(self.centralwidget)
         self.AverageNum.setGeometry(QtCore.QRect(510, 250, 42, 22))
         self.AverageNum.setObjectName("AverageNum")
+
+        # Decorations
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setGeometry(QtCore.QRect(350, 20, 20, 241))
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
@@ -106,7 +111,6 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName("label_4")
 
 
-
         m = PlotCanvas(MainWindow, width=5, height=4)
         m.move(390,60)
 
@@ -115,8 +119,6 @@ class Ui_MainWindow(object):
 
         self.addBtn.clicked.connect(self.addTemperature)
         self.quitBtn.clicked.connect(self.quitProgram)
-
-
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -141,7 +143,6 @@ class Ui_MainWindow(object):
         quit()
 
 class PlotCanvas(FigureCanvas):
-
     def __init__(self, parent=None, width=5, height=4, dpi=100):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
@@ -154,7 +155,6 @@ class PlotCanvas(FigureCanvas):
                 QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
         self.plot()
-
 
     def plot(self):
         data = [random.random() for i in range(25)]
